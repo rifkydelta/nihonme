@@ -12,13 +12,10 @@
       // MIT License
       // https://github.com/rifkydelta/nihonme
       (function() {
-        // Check for stored redirect path
-        var redirect = sessionStorage.getItem('redirect');
-        if (redirect) {
-          // Clear the stored path
-          sessionStorage.removeItem('redirect');
-          // Update the URL without triggering a page reload
-          window.history.replaceState(null, null, '/nihonme/' + redirect);
+        var params = new URLSearchParams(window.location.search);
+        var path = params.get('path');
+        if (path) {
+          window.history.replaceState(null, null, '/nihonme/' + path + window.location.hash);
         }
       })();
     </script>

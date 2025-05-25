@@ -7,17 +7,11 @@
       // Single Page Apps for GitHub Pages
       // MIT License
       // https://github.com/rifkydelta/nihonme
-      var pathSegmentsToKeep = 1;
       var l = window.location;
-      var redirectPath = l.pathname.split('/').slice(pathSegmentsToKeep).join('/');
-      
-      // Store the current path in sessionStorage
-      sessionStorage.setItem('redirect', redirectPath);
-      
-      // Redirect to the base path
+      var path = l.pathname.split('/').slice(2).join('/');
       l.replace(
         l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') +
-        '/nihonme/'
+        '/nihonme/?path=' + path + l.hash
       );
     </script>
   </head>
