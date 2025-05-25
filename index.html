@@ -8,30 +8,31 @@
     <title>NihonMe - Deteksi Benda dengan AI</title>
     <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
     <script type="text/javascript">
-      (function () {
+      // Single Page Apps for GitHub Pages
+      // MIT License
+      // https://github.com/rifkydelta/nihonme
+      (function() {
+        // Check for redirect in URL parameters
         const params = new URLSearchParams(window.location.search);
-        const path = params.get('path');
-        const reloadFlag = 'nihonme_already_reloaded';
-    
-        if (path && !localStorage.getItem(reloadFlag)) {
-          const newUrl = '/nihonme/' + path + window.location.hash;
-          window.history.replaceState(null, null, newUrl);
-          localStorage.setItem(reloadFlag, 'true');
-          setTimeout(function () {
-            window.location.reload();
-          }, 100); // 0.1 detik
-        } else {
-          // Reset flag biar gak stuck
-          localStorage.removeItem(reloadFlag);
+        const path = params.get('p');
+        
+        // Check for redirect in sessionStorage
+        const storedPath = sessionStorage.getItem('redirect');
+        
+        if (path) {
+          // Clear the URL parameter and update history
+          window.history.replaceState(null, null, '/nihonme/' + path + window.location.hash);
+        } else if (storedPath) {
+          // If we have a stored path but no parameter, we're refreshing
+          sessionStorage.removeItem('redirect');
+          window.history.replaceState(null, null, '/nihonme/' + storedPath + window.location.hash);
         }
       })();
-    </script>    
+    </script>
     <script type="module" crossorigin src="/nihonme/assets/index-TQjh0xRt.js"></script>
     <link rel="stylesheet" crossorigin href="/nihonme/assets/index-M7yUPGm9.css">
   </head>
   <body class="bg-surface-50">
-    <div id="root">
-      <p style="text-align: center; padding: 2rem;">Loading...</p>
-    </div>
+    <div id="root"></div>
   </body>
 </html>
