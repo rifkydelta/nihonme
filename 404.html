@@ -11,10 +11,12 @@
       var l = window.location;
       var path = l.pathname.split('/').slice(pathSegmentsToKeep).join('/');
       
-      // Always redirect to the ?p= format
+      // Store the current path in sessionStorage before redirecting
+      sessionStorage.setItem('redirect', path);
+      
       l.replace(
         l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') +
-        '/nihonme/?p=' + path + l.hash
+        '/nihonme/' + '?p=' + path + l.hash
       );
     </script>
   </head>
