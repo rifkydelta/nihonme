@@ -2,37 +2,25 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/nihonme/img/icon.svg" />
+    <link rel="icon" type="image/svg+xml" href="/img/icon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="NihonMe - Aplikasi deteksi objek berbasis AI yang dapat mengenali berbagai benda dalam bahasa Indonesia. Gunakan kamera atau unggah gambar untuk mendeteksi objek secara real-time dengan akurasi tinggi." />
     <title>NihonMe - Deteksi Benda dengan AI</title>
     <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
-    <script type="text/javascript">
-      // Single Page Apps for GitHub Pages
-      // MIT License
-      // https://github.com/rifkydelta/nihonme
+    <script>
+      // Check for redirect URL in sessionStorage
       (function() {
-        // Check for redirect in URL parameters
-        const params = new URLSearchParams(window.location.search);
-        const path = params.get('p');
-        
-        // Check for redirect in sessionStorage
-        const storedPath = sessionStorage.getItem('redirect');
-        
-        if (path) {
-          // Clear the URL parameter and update history
-          window.history.replaceState(null, null, '/nihonme/' + path + window.location.hash);
-        } else if (storedPath) {
-          // If we have a stored path but no parameter, we're refreshing
+        const redirect = sessionStorage.getItem('redirect');
+        if (redirect) {
           sessionStorage.removeItem('redirect');
-          window.history.replaceState(null, null, '/nihonme/' + storedPath + window.location.hash);
+          const path = new URL(redirect).pathname;
+          window.history.replaceState(null, '', path);
         }
       })();
     </script>
-    <script type="module" crossorigin src="/nihonme/assets/index-TQjh0xRt.js"></script>
-    <link rel="stylesheet" crossorigin href="/nihonme/assets/index-M7yUPGm9.css">
+    <script type="module" crossorigin src="/assets/index-CDmXGsJa.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/index-M7yUPGm9.css">
   </head>
   <body class="bg-surface-50">
-    <div id="root"></div>
+    <div id="root"></div>
   </body>
 </html>
