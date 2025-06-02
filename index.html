@@ -1,12 +1,24 @@
-n<!doctype html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/nihonme/img/icon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="NihonMe - Aplikasi deteksi objek berbasis AI yang dapat mengenali berbagai benda dalam bahasa Indonesia. Gunakan kamera atau unggah gambar untuk mendeteksi objek secara real-time dengan akurasi tinggi." />
     <title>NihonMe - Deteksi Benda dengan AI</title>
     <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
-    <script type="module" crossorigin src="/nihonme/assets/index-Bi_RNuPR.js"></script>
+    <script>
+      // Check for redirect URL in sessionStorage
+      (function() {
+        const redirect = sessionStorage.getItem('redirect');
+        if (redirect) {
+          sessionStorage.removeItem('redirect');
+          const path = new URL(redirect).pathname;
+          window.history.replaceState(null, '', path);
+        }
+      })();
+    </script>
+    <script type="module" crossorigin src="/nihonme/assets/index-Q_vWLt_n.js"></script>
     <link rel="stylesheet" crossorigin href="/nihonme/assets/index-BxdE9FmN.css">
   </head>
   <body class="bg-surface-50">
